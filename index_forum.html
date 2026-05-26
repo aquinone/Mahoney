@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Newspaper Layout | Interactive Story</title>
+    <link rel="stylesheet" href="style_forum.css">
+</head>
+<body>
+
+    <header class="split-header">
+        <div class="header-image" style="background-image: url('IMG_8464.jpeg');"></div>
+        <div class="header-content">
+            <div class="title-wrapper">
+                <span class="category"></span>
+                <h1>The Many Lives of Mr. Mahoney</h1>
+                <p class="byline">By Scarlet Gitelson • May 2026</p>
+            </div>
+        </div>
+    </header>
+
+    <div class="audio-bar">
+        <div class="spotify-placeholder">
+            <p>🎵 Spotify Podcast Embed Goes Here</p>
+        </div>
+    </div>
+
+    <section class="interactive-container" id="map-section">
+        <div class="visual-pane">
+            <img src="map_big.png" alt="World Map">
+            
+            <button class="map-pin" style="top: 30%; left: 25%;" onclick="showBlurb('pin1', 'map-section')"></button>
+            <button class="map-pin" style="top: 50%; left: 60%;" onclick="showBlurb('pin2', 'map-section')"></button>
+        </div>
+
+        <div class="content-pane">
+            <button class="close-btn" onclick="closeBlurb('map-section')">×</button>
+            <div id="pin1" class="blurb-text">
+                <h2>Chicago</h2>
+                <p>Description of Job in Chicago (see article sections)</p>
+            </div>
+            <div id="pin2" class="blurb-text">
+                <h2>Managua</h2>
+                <p>Description of refugee camp!</p>
+            </div>
+            </div>
+    </section>
+
+    <div class="instruction-box">
+        <p>Interactive Experience: Click on the pins in the map above or select a specific region in the grid below to explore Mr. Mahoney's adventures around the world!</p>
+    </div>
+
+    <section class="interactive-container" id="grid-section">
+        <div class="visual-pane">
+            <div class="map-grid">
+                <div class="grid-item" onclick="showBlurb('grid1', 'grid-section')">
+                    <img src="map_big.png" alt="Zoom 1">
+                    <span></span>
+                </div>
+                <div class="grid-item" onclick="showBlurb('grid2', 'grid-section')">
+                    <img src="map_big.png" alt="Zoom 2">
+                    <span></span>
+                </div>
+                </div>
+        </div>
+        <div class="content-pane" id="grid-blurb-pane">
+            <button class="close-btn" onclick="closeBlurb('grid-section')">×</button>
+            <div id="grid1" class="blurb-text">
+                <h2>Focus: Region 1</h2>
+                <p>Detailed reporting on job 1</p>
+            </div>
+            <div id="grid2" class="blurb-text">
+                <h2>Focus: Region 2</h2>
+                <p>Detailed reporting on job 2</p>
+            </div>
+        </div>
+    </section>
+
+    <article class="long-form">
+        <h2>Zoom-In: Mr. Mahoney at Latin</h2>
+        <p>Full article here!</p>
+    </article>
+
+    <script src="script_forum.js"></script>
+</body>
+</html>
