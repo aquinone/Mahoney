@@ -1,0 +1,262 @@
+:root {
+  --primary-bg: #ffffff;
+  --accent-color: #222;
+  --secondary-bg: #f4f4f4;
+  --transition-speed: 0.5s;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+}
+
+body {
+  font-family: 'Georgia', serif;
+  line-height: 1.6;
+  color: #333;
+}
+
+/* HEADER */
+
+.split-header {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+}
+
+.header-image {
+  flex: 1;
+  background-size: cover;
+  background-position: center;
+}
+
+.header-content {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  padding: 10%;
+  color: #ffffff;
+  background-color: #183158;
+}
+
+.title-wrapper h1 {
+  font-size: 2.5rem;
+  margin: 0.5rem 0;
+  text-transform: uppercase;
+  font-weight: 900;
+}
+
+/* MAP SECTION */
+
+.interactive-container {
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.map-wrapper {
+  position: relative;
+  width: 100%;
+  height: 70vh;
+  min-height: 500px;
+  max-height: 850px;
+  overflow: hidden;
+}
+
+.dual-map {
+  width: 100%;
+  height: 100%;
+  background: #173158;
+}
+
+#world-map.dimmed,
+#chicago-map.dimmed {
+  filter: blur(1.5px) brightness(0.8);
+}
+
+/* INSTRUCTION */
+
+.instruction-box {
+  max-width: 800px;
+  margin: 40px auto;
+  text-align: center;
+  font-style: italic;
+  color: #666;
+}
+
+.between-maps {
+  margin: 32px auto;
+  padding: 0 20px;
+}
+
+/* AUDIO */
+
+.audio-bar {
+  background: var(--secondary-bg);
+  padding: 20px;
+  text-align: center;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+}
+
+/* ARTICLE */
+
+.long-form {
+  max-width: 700px;
+  margin: 100px auto;
+  padding: 0 20px;
+}
+
+/* APP */
+
+#app {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+/* OVERLAY */
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  pointer-events: none;
+  opacity: 0;
+  background: rgba(0, 0, 0, 0.15);
+  transition: opacity 0.4s ease;
+}
+
+.overlay.active {
+  pointer-events: all;
+  opacity: 1;
+}
+
+/* PANEL */
+
+.panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 60%;
+  background: #fff;
+  box-shadow: -8px 0 40px rgba(0, 0, 0, 0.2);
+  z-index: 1001;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transform: translateX(100%);
+  opacity: 0;
+  transition:
+    transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.4s ease;
+}
+
+.panel.open {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+#panel-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 36px;
+  height: 36px;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  cursor: pointer;
+  color: #333;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  font: 20px/1 sans-serif;
+}
+
+.panel-body {
+  flex: 1;
+  overflow-y: auto;
+}
+
+#panel-image {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  display: none;
+}
+
+#panel-image.visible {
+  display: block;
+}
+
+.panel-text {
+  padding: 36px 40px;
+}
+
+#panel-title {
+  font-family: "Source Serif 4", Georgia, serif;
+  font-size: 32px;
+  font-weight: 600;
+  margin-bottom: 24px;
+  color: #1a1a1a;
+  line-height: 1.2;
+}
+
+#panel-content {
+  font-family: "Source Serif 4", Georgia, serif;
+  font-size: 17px;
+  line-height: 1.8;
+  color: #2a2a2a;
+}
+
+#panel-content p {
+  margin-bottom: 20px;
+}
+
+/* MARKERS */
+
+.leaflet-marker-icon {
+  transition: transform 0.15s ease;
+  cursor: pointer;
+
+}
+
+.leaflet-marker-icon:hover {
+  transform: scale(1.25);
+}
+
+.marker-active {
+  transform: scale(1.15);
+
+  filter:
+    drop-shadow(0 0 10px rgba(221, 133, 1, 0.65));
+}
+
+.leaflet-tooltip-top {
+  white-space: nowrap;
+}
+
+/* MOBILE */
+
+@media (max-width: 700px) {
+
+  .map-wrapper {
+    height: 55vh;
+    min-height: 420px;
+  }
+
+  .panel {
+    width: 100%;
+  }
+
+}
