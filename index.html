@@ -1,86 +1,127 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Newspaper Layout | Interactive Story</title>
-    <link rel="stylesheet" href="style_forum.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Map Explorer</title>
+
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+  />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="style_forum_2.css" />
 </head>
+
 <body>
 
-    <header class="split-header">
-        <div class="header-image" style="background-image: url('IMG_8464.jpeg');"></div>
-        <div class="header-content">
-            <div class="title-wrapper">
-                <span class="category"></span>
-                <h1>The Many Lives of Mr. Mahoney</h1>
-                <p class="byline">By Scarlet Gitelson • May 2026</p>
-            </div>
-        </div>
-    </header>
+  <header class="split-header">
+    <div
+      class="header-image"
+      style="background-image: url('IMG_8464.jpeg');"
+    ></div>
 
-    <div class="audio-bar">
-        <div class="spotify-placeholder">
-            <p>🎵 Spotify Podcast Embed Goes Here</p>
-        </div>
+    <div class="header-content">
+      <div class="title-wrapper">
+        <span class="category"></span>
+
+        <h1>The Many Lives of Mr. Mahoney</h1>
+
+        <p class="byline">
+          By Scarlet Gitelson • May 2026
+        </p>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAP SECTION -->
+  <section class="interactive-container" id="map-section">
+
+    <!-- WORLD MAP -->
+    <div class="map-wrapper">
+      <div id="world-map" class="dual-map"></div>
     </div>
 
-    <section class="interactive-container" id="map-section">
-        <div class="visual-pane">
-            <img src="map_big.png" alt="World Map">
-            
-            <button class="map-pin" style="top: 30%; left: 25%;" onclick="showBlurb('pin1', 'map-section')"></button>
-            <button class="map-pin" style="top: 50%; left: 60%;" onclick="showBlurb('pin2', 'map-section')"></button>
-        </div>
-
-        <div class="content-pane">
-            <button class="close-btn" onclick="closeBlurb('map-section')">×</button>
-            <div id="pin1" class="blurb-text">
-                <h2>Chicago</h2>
-                <p>Description of Job in Chicago (see article sections)</p>
-            </div>
-            <div id="pin2" class="blurb-text">
-                <h2>Managua</h2>
-                <p>Description of refugee camp!</p>
-            </div>
-            </div>
-    </section>
-
-    <div class="instruction-box">
-        <p>Interactive Experience: Click on the pins in the map above or select a specific region in the grid below to explore Mr. Mahoney's adventures around the world!</p>
+    <!-- INSTRUCTION BLURB -->
+    <div class="instruction-box between-maps">
+      <p>
+        Interactive Experience: Click on the pins in the surrounding maps
+        to explore Mr. Mahoney's adventures around the world and in Chicago!
+      </p>
     </div>
 
-    <section class="interactive-container" id="grid-section">
-        <div class="visual-pane">
-            <div class="map-grid">
-                <div class="grid-item" onclick="showBlurb('grid1', 'grid-section')">
-                    <img src="map_big.png" alt="Zoom 1">
-                    <span></span>
-                </div>
-                <div class="grid-item" onclick="showBlurb('grid2', 'grid-section')">
-                    <img src="map_big.png" alt="Zoom 2">
-                    <span></span>
-                </div>
-                </div>
-        </div>
-        <div class="content-pane" id="grid-blurb-pane">
-            <button class="close-btn" onclick="closeBlurb('grid-section')">×</button>
-            <div id="grid1" class="blurb-text">
-                <h2>Focus: Region 1</h2>
-                <p>Detailed reporting on job 1</p>
-            </div>
-            <div id="grid2" class="blurb-text">
-                <h2>Focus: Region 2</h2>
-                <p>Detailed reporting on job 2</p>
-            </div>
-        </div>
-    </section>
+    <!-- CHICAGO MAP -->
+    <div class="map-wrapper">
+      <div id="chicago-map" class="dual-map"></div>
+    </div>
 
-    <article class="long-form">
-        <h2>Zoom-In: Mr. Mahoney at Latin</h2>
-        <p>Full article here!</p>
-    </article>
+    <!-- SHARED OVERLAY -->
+    <div id="overlay" class="overlay"></div>
 
-    <script src="script_forum.js"></script>
+    <!-- PANEL -->
+    <div id="panel" class="panel">
+
+      <button id="panel-close">&#215;</button>
+
+      <div class="panel-body">
+
+        <img id="panel-image" alt="" />
+
+        <div class="panel-text">
+
+          <h2 id="panel-title"></h2>
+
+          <div id="panel-content"></div>
+
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- AUDIO -->
+  <div class="audio-bar">
+    <div class="spotify-placeholder">
+      <p>🎵 Spotify Podcast Embed Goes Here</p>
+    </div>
+  </div>
+
+  <!-- ARTICLE -->
+  <article class="long-form">
+
+    <h2>Zoom-In: Mr. Mahoney at Latin</h2>
+
+    <p>
+      <br>“He’s lived more lives than a cat,” Upper School Math teacher Chris van Benthuysen said, describing the longest-serving member of his department, Ed Mahoney.
+
+      <br><br>Indeed, though this year is his 22nd year here, Mr. Mahoney’s path to Latin spans copious continents and careers—not a linear road at all. “I kind of stumbled into teaching,” he said. “I didn’t know that that’s what I wanted to do, ever.”
+
+      <br><br>Along the way, he worked in construction, finance, restaurants, and photography. He traveled to refugee camps, ship yards, forests, and Japanese ports. Every story builds the same awed sense among those who know him.
+
+      <br><br>“Every time some random story about something pops up that’s unrelated, he’ll be like ‘oh, yeah, I did that for six months,’” Mr. van Benthuysen said.
+
+      <br><br>This long list of experience adds to his teaching immensely, allowing him to empathize with many perspectives. Mr. van Benthuysen said, “He just has seen the world through so many different lenses, that it’s an invaluable asset to have within the department.”
+
+      <br><br>For his students, this real-world focus helps put skills in context. One former student and teaching assistant, Michael Cardoza ‘24, spoke to Mr. Mahoney’s unique classroom style.
+
+      <br><br>“For the most part, class is completely project based,” Michael said. “While there is conceptual (and even historical) learning, most of the actual education comes in the form of concept application. Not only that, but the application is wildly practical.”
+
+      <br><br>Mr. van Benthuysen sees Mr. Mahoney’s insight present itself in diverse discussions regularly. “Lots of members of my department—when we’re in conversation about something, debating something philosophical or something like that—will offer a perspective that’s one I had not considered and it will open my eyes,” he said. “He’s the one that does that more often than anybody else in the department.”
+    </p>
+
+  </article>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="script_forum_2.js"></script>
+
 </body>
 </html>
