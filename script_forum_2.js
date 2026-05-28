@@ -132,8 +132,8 @@ const worldInitialView = {
 };
 
 const chicagoInitialView = {
-  center: [41.88, -87.63],
-  zoom: 9.4
+  center: [41.98, -87.63],
+  zoom: 9.5
 };
 
 function createMap(id, center, zoom) {
