@@ -61,7 +61,7 @@ const locations = [
   {
     name: "Scaling Trees in Outdoor Ed",
     lat: 41.9361,
-    lng: (-87.6640+360),
+    lng: (-87.6640),
     content: [
      "Upon returning to Chicago after his time in Florida, Mr. Mahoney found work at an outdoor education company called Cliffs and Cables, where he honed his construction skills.",
 
