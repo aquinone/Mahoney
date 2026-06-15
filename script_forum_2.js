@@ -395,3 +395,17 @@ overlay.addEventListener(
   "click",
   closePanel
 );
+
+const headerImage =
+  document.getElementById("header-image");
+
+const imageCaption =
+  document.getElementById("image-caption");
+
+headerImage.addEventListener("mouseenter", () => {
+  imageCaption.classList.add("visible");
+});
+
+headerImage.addEventListener("mouseleave", () => {
+  imageCaption.classList.remove("visible");
+});
