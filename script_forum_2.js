@@ -1,8 +1,8 @@
 const locations = [
   {
     name: "Chicago Roots",
-    lat: 41.8727,
-    lng: -87.6511,
+    lat: 41.7997,
+    lng: -87.7229,
     content: [
      "Mr. Mahoney’s most formative job was also his first: working in restaurants like Red Lobster and Bakers Square.",  "While enrolled in high school at Chicago’s Whitney Young, he picked up roles in food service starting at age 14, eventually also bartending and waiting tables. He continued this food industry work through college at the University of Illinois Chicago.",  "Throughout his time in restaurants, the most impactful aspect was the people who became his collaborators. “I was working next to people that were on work release from being incarcerated, next to people that grew up in very wealthy environments,” Mr. Mahoney said. ",  "This diverse environment shaped him into a person who is comfortable talking to anyone. Now, these people skills evidence themselves constantly in his intentional, in-person conversations as Project Week coordinator. ",  "Mr. Espejo-Vadillo said, “A lot of people want to send emails and save time, but when it comes to talking about projects, it’s nice that we actually meet in person with the other two leaders that are preparing each project and we have conversations one-on-one.”",  "Additionally, even now, Mr. Mahoney enjoys cooking as a hobby, a skill gained from his time in these professional kitchens."  ]
   },
