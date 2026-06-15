@@ -8,8 +8,8 @@ const locations = [
   },
   {
     name: "First Steps in Finance",
-    lat: 41.8695,
-    lng: -87.6504,
+    lat: 41.87943,
+    lng: -87.63485,
     content: [
       "When he graduated from the University of Illinois Chicago with a degree in finance, he began working at Jack Carl Futures, a finance company. Now, this hands-on experience shapes his teaching in Finance & Math 1 and Finance & Math 2, which he exclusively taught from 2019 to 2025.",  "Michael spoke to Mr. Mahoney’s insight on this front. “Having worked in the industry, he did shed some light on personal experience,” he said. “My favorite was that he actually knew the language [hand signs] of the trading floor.”",  "But Mr. Mahoney’s work in finance couldn’t last; restlessness took hold. “I went to finance because it was my major—it had always been the plan,” Mr. Mahoney said. “But once I landed there, I realized it wasn’t necessarily a great fit for me. And then I was looking for, what next?”"
  ]},
